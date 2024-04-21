@@ -5,7 +5,7 @@ const SigninPage = () => {
     <div className="flex  w-full items-center">
     <div className=" w-full flex items-center">
       <img
-        src="./public/sign-in.png"
+        src="https://raw.githubusercontent.com/ajinthomas619/mern-auth-client/main/public/sign-in.png"
         alt="Sign In"
         className="cursor-pointer"
       />
