@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser, clearUser } from "../redux/slices/userSlices";
-import { UserData } from "../utils/interface/interface";
 import { verifyOtpFunctiom } from "../utils/api/methods/post";
 import toast ,{Toaster}from 'react-hot-toast';
 
@@ -18,12 +17,13 @@ const OTPValidation = () => {
       if (response.data?.status === false) {
         toast.error("Invalid OTP");
       } else {
-        const data: UserData = {
+        const data: any = {
           firstname: response.data.user?.firstname ?? "",
           lastname: response.data.user?.lastname ?? "",
           email: response.data.user?.email ?? "",
           password: response.data.user?.password ?? "",
-          mobile: response.data.user?.mobile ?? ""
+          mobile: response.data.user?.mobile ?? "",
+        
         };
         console.log("user data", data);
         dispatch(clearUser());
@@ -51,7 +51,7 @@ const OTPValidation = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          validate(otp);
+          validate();
         }}
       >
         <div className="flex flex-col items-center justify-center h-screen">
