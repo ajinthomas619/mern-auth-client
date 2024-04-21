@@ -31,7 +31,7 @@ const OTPValidation = () => {
         console.log(response?.data, "response.data");
         if (response?.data?.status) {
           toast.success(response?.data?.message);
-          navigate("/log-in", { replace: true });
+          navigate("/Home", { replace: true });
         } else {
           toast.error(response?.data?.message);
         }
