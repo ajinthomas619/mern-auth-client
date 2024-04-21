@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const AUTH_URL = 'http://localhost:3000/api'
+export const AUTH_URL = 'http://mern-auth-server-gamma.vercel.app/api'
 
 export const axiosPrivate = axios.create({
     baseURL: AUTH_URL,  

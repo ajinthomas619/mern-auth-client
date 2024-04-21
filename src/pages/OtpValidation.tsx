@@ -11,7 +11,7 @@ const OTPValidation = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const validate = async (e: any) => {
+  const validate = async () => {
     try {
       const response: any = await verifyOtpFunctiom({ otp: otp });
       console.log("otp respnse",response);
