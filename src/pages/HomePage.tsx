@@ -17,7 +17,7 @@ const HomePage = () => {
  const navigate = useNavigate()
  const logout = async() => {
   try{
-    axios.get("https://mern-auth-server-gamma.vercel.app/api/logout")
+    axios.get("https://Mern-auth-env.eba-u2r4khjy.ap-south-1.elasticbeanstalk.com /api/logout")
    navigate("/")
   }
   catch(error){
