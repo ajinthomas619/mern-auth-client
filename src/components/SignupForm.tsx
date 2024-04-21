@@ -21,7 +21,7 @@ const SignupForm: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [contactMode, setContactMode] = useState<"email" | "phone">("email");
   const [formErrors, setFormErrors] = useState<FormErrors>({});
-  const [showPassword,setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
 
@@ -42,21 +42,21 @@ const SignupForm: React.FC = () => {
     if (!password.trim()) {
       errors.password = "Password is required";
     }
- 
+
     if (password !== confirmPassword) {
       errors.confirmPassword = "Passwords do not match";
     }
 
     setFormErrors(errors);
 
-    return Object.keys(errors).length === 0; 
+    return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  console.log("hi")
+    console.log("hi");
     const isValid = validateForm();
-    console.log(isValid,"validated form")
+    console.log(isValid, "validated form");
 
     if (!isValid) {
       return;
@@ -73,8 +73,7 @@ const SignupForm: React.FC = () => {
       };
 
       const response = await SignUpFunction(data);
-      console.log("response of signup",response);
-      
+      console.log("response of signup", response);
 
       if (response) {
         console.log("Registration successful:", response);
@@ -106,13 +105,33 @@ const SignupForm: React.FC = () => {
               <h2 className="mb-10 text-center mt-5 font-black text-3xl text-red-500">
                 !
               </h2>
-              <a href="/log-in" className="px-5 mb-10 text-center mt-5 font-black text-3xl">
-  <span style={{ color: '#3A244A',textDecorationColor:'#3A244A',borderBottom:'2px solid #3A244A' }}>Sign</span>
-  <span style={{ color: '#D72638',textDecorationColor:'#D72638',borderBottom:'2px solid #D72638' }}> In</span>
-</a>            </div>
+              <a
+                href="/log-in"
+                className="px-5 mb-10 text-center mt-5 font-black text-3xl"
+              >
+                <span
+                  style={{
+                    color: "#3A244A",
+                    textDecorationColor: "#3A244A",
+                    borderBottom: "2px solid #3A244A",
+                  }}
+                >
+                  Sign
+                </span>
+                <span
+                  style={{
+                    color: "#D72638",
+                    textDecorationColor: "#D72638",
+                    borderBottom: "2px solid #D72638",
+                  }}
+                >
+                  {" "}
+                  In
+                </span>
+              </a>
+            </div>
             <div className="flex flex-col items-center w-full max-w-md">
               <div className="mb-5 w-full max-w-md">
-                
                 <input
                   id="firstname"
                   placeholder="first name"
@@ -127,7 +146,6 @@ const SignupForm: React.FC = () => {
                 )}
               </div>
               <div className="mb-5 w-full max-w-md">
-              
                 <input
                   id="lastname"
                   placeholder="last name"
@@ -143,44 +161,40 @@ const SignupForm: React.FC = () => {
               </div>
 
               <div className="mb-7 border-b-2 border-black flex flex-row w-full max-w-md">
-             
                 <input
                   id="password"
-                  placeholder='password'
+                  placeholder="password"
                   className="w-full rounded text-lg leading-tight py-3 
                   px-2 mb-4 focus:outline-indigo-200"
-                  type={showPassword?"text":"password"}
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <button
-                 className="flex  py-3 focus:outline-none"
-                 onClick={() => setShowPassword(!showPassword)}
+                  className="flex  py-3 focus:outline-none"
+                  onClick={() => setShowPassword(!showPassword)}
                 >
-
-
-                <Eye />
+                  <Eye />
                 </button>
                 {formErrors.password && (
                   <p className="text-red-500 text-xs">{formErrors.password}</p>
                 )}
               </div>
               <div className="mb-7 flex flex-row w-full max-w-md border-b-2 border-black">
-              
                 <input
                   id="confirmpassword"
                   placeholder="confirm password"
                   className="w-full rounded text-lg leading-tight py-3 
                   px-2 mb-4 focus:outline-indigo-200"
-                  type={showPassword?"text":"password"}
+                  type={showPassword ? "text" : "password"}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
-                 <button
-                 className="flex py-3  focus:outline-none"
-                 onClick={() => setShowPassword(!showPassword)}
+                <button
+                  className="flex py-3  focus:outline-none"
+                  onClick={() => setShowPassword(!showPassword)}
                 >
-                <Eye />
+                  <Eye />
                 </button>
                 {formErrors.confirmPassword && (
                   <p className="text-red-500 text-xs">
@@ -241,9 +255,13 @@ const SignupForm: React.FC = () => {
                 </div>
               )}
 
-              <button className="w-full border bg-fuchsia-950 py-4 px-4
-         rounded-2xl text-white font-bold text-xl" type="submit">Sign up</button>
-           
+              <button
+                className="w-full border bg-fuchsia-950 py-4 px-4
+         rounded-2xl text-white font-bold text-xl"
+                type="submit"
+              >
+                Sign up
+              </button>
             </div>
           </form>
         </div>

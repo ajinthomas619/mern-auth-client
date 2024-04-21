@@ -70,6 +70,7 @@ const LoginForm: React.FC = () => {
             <h2 className="text-center mt-5 font-black text-3xl text-red-500">
               !
             </h2>
+            
           </div>
           <div className="flex flex-col items-center w-full">
             <div className="mb-5 w-full">
@@ -111,6 +112,12 @@ const LoginForm: React.FC = () => {
               type="submit"
             >
               Login
+            </button>
+            <button
+              className="w-full border border-fuchsia-950 bg-white py-4 px-4 mt-5 rounded-2xl text-fuchsia-950 font-bold text-xl"
+              onClick={() => navigate('/sign-up')}
+            >
+              Signup
             </button>
           </div>
         </form>
