@@ -17,7 +17,7 @@ const HomePage = () => {
  const navigate = useNavigate()
  const logout = async() => {
   try{
-    axios.get("http://mern-auth-server-gamma.vercel.app/api/logout")
+    axios.get("https://mern-auth-server-gamma.vercel.app/api/logout")
    navigate("/")
   }
   catch(error){
