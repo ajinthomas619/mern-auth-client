@@ -17,7 +17,7 @@ const HomePage = () => {
  const navigate = useNavigate()
  const logout = async() => {
   try{
-    axios.get("https://mern-auth-server-q1n565nrg-ajin-thomas-projects.vercel.app/api/logout")
+    axios.get("https://jmjmusichouse.joeleldho.com/api/logout")
    navigate("/")
   }
   catch(error){
