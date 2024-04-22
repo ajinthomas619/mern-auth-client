@@ -4,28 +4,21 @@ import { UserData } from "../utils/interface/interface";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { getUser } from "../redux/slices/userSlices";
+import { clearUser, getUser } from "../redux/slices/userSlices";
 
 
 const HomePage = () => {
   const dispatch = useDispatch()
   const currentUser = useSelector( (state : UserData )=> state.persisted.user.userData);
  console.log(currentUser)
- useEffect(() => {
-  if(!currentUser._id){
-    navigate('log-in')
-  }
-  else{
-    navigate('/Home')
-  }
- })
  useEffect(()=>{
   dispatch(getUser())
  },[dispatch])
  const navigate = useNavigate()
  const logout = async() => {
   try{
-    axios.get("https://localhost:8080/api/logout")
+    axios.get("https://jmjmusichouse.joeleldho.com/api/logout")
+    dispatch(clearUser())
    navigate("/")
   }
   catch(error){
