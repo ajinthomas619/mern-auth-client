@@ -11,13 +11,21 @@ const HomePage = () => {
   const dispatch = useDispatch()
   const currentUser = useSelector( (state : UserData )=> state.persisted.user.userData);
  console.log(currentUser)
+ useEffect(() => {
+  if(!currentUser._id){
+    navigate('log-in')
+  }
+  else{
+    navigate('/Home')
+  }
+ })
  useEffect(()=>{
   dispatch(getUser())
  },[dispatch])
  const navigate = useNavigate()
  const logout = async() => {
   try{
-    axios.get("https://jmjmusichouse.joeleldho.com/api/logout")
+    axios.get("https://localhost:8080/api/logout")
    navigate("/")
   }
   catch(error){
