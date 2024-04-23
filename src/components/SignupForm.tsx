@@ -13,6 +13,7 @@ interface FormErrors {
 }
 
 const SignupForm: React.FC = () => {
+
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -61,7 +62,7 @@ const SignupForm: React.FC = () => {
     if (!isValid) {
       return;
     }
-
+    
     try {
       const data = {
         firstname: firstname,
@@ -86,15 +87,6 @@ const SignupForm: React.FC = () => {
 
         navigate("/verify-otp");
 
-var d1 = new Date()
-d1.toUTCString()
-Math.floor(d1.getTime()/1000)
-var d2 = new Date( d1.getUTCFullYear(), d1.getUTCMonth(), d1.getUTCDate(), d1.getUTCHours(), d1.getUTCMinutes(), d1.getUTCSeconds() );
-d2.toUTCString()
-Math.floor(d2.getTime( )/1000)
-
-console.log("timezone 1",d1)
-console.log("timezone 2",d2)
 
       } else {
         console.error("Unexpected response structure:", response);
