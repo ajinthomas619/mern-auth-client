@@ -10,7 +10,7 @@ const OTPValidation = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const validate = async () => {
+  const validate = async (e:any) => {
     try {
       const response: any = await verifyOtpFunctiom({ otp: otp });
       console.log("otp respnse",response);
@@ -51,7 +51,7 @@ const OTPValidation = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          validate();
+          validate(otp);
         }}
       >
         <div className="flex flex-col items-center justify-center h-screen">
