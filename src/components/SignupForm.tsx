@@ -57,7 +57,7 @@ const SignupForm: React.FC = () => {
     e.preventDefault();
     console.log("hi");
     const isValid = validateForm();
-    console.log(isValid, "validated form");
+
 
     if (!isValid) {
       return;
@@ -74,7 +74,7 @@ const SignupForm: React.FC = () => {
       };
 
       const response = await SignUpFunction(data);
-      console.log("response of signup", response);
+    
 
       if (response) {
         console.log("Registration successful:", response);
@@ -85,7 +85,7 @@ const SignupForm: React.FC = () => {
         setPassword("");
         setConfirmPassword("");
 
-        navigate("/verify-otp");
+        navigate(`/verify-otp/${response?.data?.data?.user?._id}`);
 
 
       } else {

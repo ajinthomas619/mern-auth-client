@@ -15,7 +15,7 @@ const UserRoutes = () => {
                 <Route path="/" element={<Landingpage />} /> 
                 <Route path="/log-in" element={<SigninPage />} />
                 <Route path="/sign-up" element={<SignupPage />} />
-                <Route path="/verify-otp" element={<OTPValidation />} />
+                <Route path="/verify-otp/:id" element={<OTPValidation />} />
                 <Route path="/Home" element={<HomePage />} />
             </Routes>
         </main>

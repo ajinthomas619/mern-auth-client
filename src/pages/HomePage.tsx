@@ -9,12 +9,21 @@ import { clearUser, getUser } from "../redux/slices/userSlices";
 
 const HomePage = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate();
   const currentUser = useSelector( (state : UserData )=> state.persisted.user.userData);
  console.log(currentUser)
  useEffect(()=>{
   dispatch(getUser())
  },[dispatch])
- const navigate = useNavigate()
+
+ useEffect(() => {
+  if (!currentUser) {
+    navigate("/login");
+  }else{
+    navigate('/Home')
+  }
+}, []);
+
  const logout = async() => {
   try{
     axios.get("https://jmjmusichouse.joeleldho.com/api/logout")

@@ -4,16 +4,18 @@ import { useDispatch } from "react-redux";
 import { addUser, clearUser } from "../redux/slices/userSlices";
 import { verifyOtpFunctiom } from "../utils/api/methods/post";
 import toast ,{Toaster}from 'react-hot-toast';
-
+import { useParams } from "react-router-dom";
 const OTPValidation = () => {
   const [otp, setOtp] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const {id} =useParams()
+  console.log("id from use Params",id)
   const validate = async (e:any) => {
     try {
-      const response: any = await verifyOtpFunctiom({ otp: otp });
-      console.log("otp respnse",response);
+      const response: any = await verifyOtpFunctiom({ otp: otp ,id:id});
+    
       if (response.data?.status === false) {
         toast.error("Invalid OTP");
       } else {
@@ -25,10 +27,10 @@ const OTPValidation = () => {
           mobile: response.data.user?.mobile ?? "",
         
         };
-        console.log("user data", data);
+    
         dispatch(clearUser());
         dispatch(addUser(data));
-        console.log(response?.data, "response.data");
+    
         if (response?.data?.status) {
           toast.success(response?.data?.message);
           navigate("/Home", { replace: true });
@@ -42,8 +44,7 @@ const OTPValidation = () => {
     }
   };
 
-  useEffect(() => {
-  }, []);
+
 
   return (
     <>
