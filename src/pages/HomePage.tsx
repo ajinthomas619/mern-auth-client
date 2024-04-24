@@ -14,7 +14,7 @@ const HomePage = () => {
  console.log(currentUser)
  useEffect(()=>{
   dispatch(getUser())
- },[dispatch])
+ },[])
 
  useEffect(() => {
   if (!currentUser) {
