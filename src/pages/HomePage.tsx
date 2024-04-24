@@ -13,12 +13,12 @@ const HomePage = () => {
   const currentUser = useSelector( (state : UserData )=> state.persisted.user.userData);
  console.log(currentUser)
  useEffect(()=>{
-  dispatch(getUser())
+  dispatch(getUser(currentUser))
  },[])
 
  useEffect(() => {
   if (!currentUser) {
-    navigate("/login");
+    navigate("/log-in");
   }else{
     navigate('/Home')
   }
