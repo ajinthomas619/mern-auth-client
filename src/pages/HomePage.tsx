@@ -11,18 +11,18 @@ const HomePage = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const currentUser = useSelector( (state : UserData )=> state.persisted.user.userData);
+  useEffect(() => {
+   if (!currentUser) {
+     navigate("/log-in");
+   }else{
+     navigate('/Home')
+   }
+ }, []);
  console.log(currentUser)
  useEffect(()=>{
   dispatch(getUser(currentUser))
  },[])
 
- useEffect(() => {
-  if (!currentUser) {
-    navigate("/log-in");
-  }else{
-    navigate('/Home')
-  }
-}, []);
 
  const logout = async() => {
   try{
