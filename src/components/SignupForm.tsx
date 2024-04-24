@@ -12,6 +12,7 @@ interface FormErrors {
   confirmPassword?: string;
 }
 
+
 const SignupForm: React.FC = () => {
 
   const [firstname, setFirstname] = useState("");
@@ -73,7 +74,7 @@ const SignupForm: React.FC = () => {
         confirmPassword: confirmPassword,
       };
 
-      const response = await SignUpFunction(data);
+      const response = await SignUpFunction(data) ;
     
 
       if (response) {
